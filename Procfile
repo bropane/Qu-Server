@@ -1,1 +1,1 @@
-web: gunicorn qu_x.wsgi --log-file -
+web: waitress qu_x.wsgi --log-file -
