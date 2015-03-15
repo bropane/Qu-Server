@@ -1,7 +1,5 @@
 __author__ = 'taylor'
 
-__author__ = 'Taylor'
-
 from rest_framework.permissions import BasePermission
 
 from .models import Client

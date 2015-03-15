@@ -10,6 +10,7 @@ from api_keys.permissions import AuthorizedClientPermission
 from .models import Question
 from .serializers import QuestionSerializer
 
+
 @permission_classes((AuthorizedClientPermission,))
 @api_view()
 def get_random_question(request, format=None):
@@ -22,7 +23,10 @@ def get_random_question(request, format=None):
 @api_view(['POST'])
 @permission_classes((AuthorizedClientPermission,))
 def create_question(request, format=None):
-    question_text = request.data['question']
+    try:
+        question_text = request.data['question']
+    except KeyError:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
     question = Question(question=question_text)
     question.save()
     serializer = QuestionSerializer(question)
@@ -53,6 +57,7 @@ def answer_negative(request, pk, format=None):
     question.save()
     serializer = QuestionSerializer(question)
     return Response(serializer.data)
+
 
 @permission_classes((AuthorizedClientPermission,))
 class QuestionDetail(generics.RetrieveAPIView):
