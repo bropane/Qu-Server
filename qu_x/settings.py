@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'api_keys',
     'questions',
 
     'django.contrib.admin',
@@ -80,7 +81,8 @@ USE_TZ = True
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(
+    default='postgres://gxjdtpfdghrmnk:meC5knlnrQXfYympc7bUFBEOLU@ec2-107-21-93-97.compute-1.amazonaws.com:5432/d9hn1cno051bn2')
 
 # Enable Connection Pooling (if desired)
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
