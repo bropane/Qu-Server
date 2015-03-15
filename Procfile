@@ -1,1 +1,1 @@
-web: waitress qu_x.wsgi --log-file -
+web: waitress-serve --port=$PORT qu_x.wsgi:application
