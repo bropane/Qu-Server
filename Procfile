@@ -1,0 +1,1 @@
+web: gunicorn qu_x.wsgi --log-file -
