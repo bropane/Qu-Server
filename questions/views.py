@@ -7,5 +7,5 @@ from .serializers import QuestionSerializer
 class QuestionViewSet(viewsets.ModelViewSet):
 
     serializer_class = QuestionSerializer
-    queryset = Question
+    queryset = Question.objects.all()
 
